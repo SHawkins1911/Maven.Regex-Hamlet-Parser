@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,10 +16,28 @@ public class HamletParserTest {
 
     @Test
     public void testChangeHamletToLeon() {
+        // Arrange
+        String expected = hamletParser.loadFile("leon.txt");
+
+        // Act
+        String actual = hamletParser.changeHamlet("Leon");
+
+        // Assert
+        assertEquals(expected, actual);
+        assertNotEquals(expected,hamletParser.getHamletData());
     }
 
     @Test
     public void testChangeHoratioToTariq() {
+        // Arrange
+        String expected = hamletParser.loadFile("tariq.txt");
+
+        // Act
+        String actual = hamletParser.changeHoratio("Tariq");
+
+        // Assert
+        assertNotEquals(expected, hamletParser.getHamletData());
+        assertEquals(expected, actual);
     }
 
     @Test
